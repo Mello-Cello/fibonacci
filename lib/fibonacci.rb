@@ -5,8 +5,23 @@
 # ....
 # e.g. 6th fibonacci number is 8
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) where n is value passed into the method as n
+# Space complexity: O(1) / constant; no new space is required after initial variables are established
 def fibonacci(n)
-  raise NotImplementedError
+  return 0 if n == 0
+  return 1 if n == 1
+  raise ArgumentError if n.class != Integer
+  raise ArgumentError if n < 0
+
+  num_first = 0
+  num_second = 1
+  sum = 0
+
+  (n - 1).times do
+    sum = num_second + num_first
+    num_first = num_second
+    num_second = sum
+  end
+
+  return sum
 end
