@@ -8,10 +8,8 @@
 # Time complexity: O(n) where n is value passed into the method as n
 # Space complexity: O(1) / constant; no new space is required after initial variables are established
 def fibonacci(n)
-  return 0 if n == 0
-  return 1 if n == 1
-  raise ArgumentError if n.class != Integer
-  raise ArgumentError if n < 0
+  raise ArgumentError if !n || n < 0
+  return n if n < 2
 
   num_first = 0
   num_second = 1
